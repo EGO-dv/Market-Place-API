@@ -1,3 +1,5 @@
+const dotenv = require("dotenv")
+dotenv.config()
 const express = require("express")
 const app = express()
 const PORT = 2889
@@ -9,6 +11,7 @@ app.use(express.json())
 app.use(productRouter)
 app.use(customerRouter)
 app.use(orderRouter)
+
 
  
 
