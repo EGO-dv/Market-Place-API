@@ -125,7 +125,7 @@ exports.deleteOrder  = async(req,res)=>{
         await orderModel.findByIdAndDelete(id)
 
         res.status(200).json({
-            message: "Order succesfully Dropped"
+            message: "Order succesfully removed"
         })
     } catch (error) {
                 res.status(500).json({
