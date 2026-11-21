@@ -111,3 +111,26 @@ exports.updateOrderStatus = async (req, res) => {
         });
     }
 };
+
+exports.deleteOrder  = async(req,res)=>{
+    try {
+        const id = req.params.id
+        const findOrder = await orderModel.findById(id)
+        if(!findOrder){
+            return res.status(404).json({
+                message:"Order not found"
+            })
+        }
+
+        await orderModel.findByIdAndDelete(id)
+
+        res.status(200).json({
+            message: "Order succesfully deleted"
+        })
+    } catch (error) {
+                res.status(500).json({
+            message: "An error occurred",
+            error: error.message
+        });
+    }
+    }
